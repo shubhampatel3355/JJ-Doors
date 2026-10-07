@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JJ Doors Redesign Review</title>
+  <meta name="description" content="Phase 1 review hub for the JJ Doors website redesign: discovery, design system, hero directions and the homepage prototype.">
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try { if (sessionStorage.getItem("jj-wipe") === "1") { d.classList.add("wipe-in"); sessionStorage.removeItem("jj-wipe"); } } catch (e) {}
+      setTimeout(function () { d.classList.remove("wipe-in"); }, 3000);
+    })();
+  </script>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- One request per family: Fontshare drops the second family in combined requests -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,400i,500,600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="doc-bar">
+    <div class="wrap doc-bar__inner">
+      <a class="doc-bar__logo" href="index.html" aria-label="Review hub"><img src="assets/img/brand/jj-doors-logo-480.png" width="480" height="192" alt="JJ Doors and Plywood"></a>
+      <p class="doc-bar__title">Website redesign, Phase 1</p>
+      <nav aria-label="Review pages">
+        <a href="index.html" aria-current="page">Overview</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="design-system.html">Design system</a>
+        <a href="heroes.html">Heroes</a>
+        <a href="home.html">Homepage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc" data-page>
+    <div class="doc-head">
+      <h1 class="t-display-l">JJ Doors website redesign</h1>
+      <p class="t-lede">Phase 1 for review: discovery, the design system, two hero directions and the homepage prototype at 1440px and 390px, with the key motion working.</p>
+      <p class="doc-meta">7 October 2026 · Built only from the current site's content, the 2026–28 catalogue photography and the supplied logo.</p>
+    </div>
+
+    <section class="doc-section" aria-labelledby="h-parts">
+      <h2 class="sr-only" id="h-parts">What is in Phase 1</h2>
+      <div class="cards">
+        <a class="card" href="discovery.html">
+          <p class="card__k">Step 1</p>
+          <h3 class="t-h3">Discovery</h3>
+          <p class="t-small t-muted">Content inventory with every model code, the flags to fix, an imagery audit, the reference teardown, the design read and the sitemap.</p>
+          <span class="link t-small">Open <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="card" href="design-system.html">
+          <p class="card__k">Foundations</p>
+          <h3 class="t-h3">Design system</h3>
+          <p class="t-small t-muted">Tokens with contrast ratios, three type pairings, grid, spacing, radius, button and form states, cards, nav, footer, image rules, motion tokens.</p>
+          <span class="link t-small">Open <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="card" href="heroes.html">
+          <p class="card__k">Decision</p>
+          <h3 class="t-h3">Two video heroes</h3>
+          <p class="t-small t-muted">The brand film framed on the light page, or full-bleed. Live at both sizes, with trade-offs and a recommendation.</p>
+          <span class="link t-small">Open <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="card" href="home.html">
+          <p class="card__k">Prototype</p>
+          <h3 class="t-h3">Homepage</h3>
+          <p class="t-small t-muted">Video hero, marquee, counters, craftsmanship, featured collections, contact form and map, three guides, CTA band and footer. Nothing else.</p>
+          <span class="link t-small">Open full size <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="doc-section" aria-labelledby="h-live">
+      <h2 class="t-h2" id="h-live">Homepage, live</h2>
+      <p class="intro">Both frames run the real prototype. Scroll inside them. For the full experience (smooth scrolling and page transitions) open it full size.</p>
+      <div class="frames">
+        <div class="device">
+          <p class="device__label"><span>Desktop · 1440 × 900</span><span><a href="home.html">Full size</a> · <a href="home.html?hero=full">Full-bleed hero</a> · <a href="home.html?grid=1">Grid overlay</a></span></p>
+          <div class="device__screen" data-w="1440" data-h="900"><iframe title="Homepage at 1440 pixels" data-src="home.html?frame=1" loading="lazy"></iframe></div>
+        </div>
+        <div class="device device--phone">
+          <p class="device__label"><span>Phone · 390 × 844</span></p>
+          <div class="device__screen" data-w="390" data-h="844" data-max="0.72"><iframe title="Homepage at 390 pixels" data-src="home.html?frame=1" loading="lazy"></iframe></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc-section" aria-labelledby="h-decide">
+      <h2 class="t-h2" id="h-decide">Decisions for you</h2>
+      <div class="cols cols--2">
+        <ol class="steps">
+          <li><strong>Hero.</strong> The film framed on the light page (recommended), or full-bleed like the current site.</li>
+          <li><strong>The film.</strong> It is a CG render. Confirm the door shown is a JJ design, and plan a real filmed replacement.</li>
+          <li><strong>Typefaces.</strong> General Sans with Switzer (recommended), Archivo, or Geist.</li>
+          <li><strong>Master logo.</strong> The supplied oval “JJ” lockup is used throughout. The shield “J” mark is also in use (favicon, SVG files, hero video). One should go.</li>
+          <li><strong>Plywood.</strong> The logo says “Doors &amp; Plywood”, but no plywood is offered on the site. Keep it, add a plywood offer, or drop it?</li>
+        </ol>
+        <div>
+          <p class="t-small"><strong>Facts the client must confirm before launch</strong></p>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Founding year (2011 vs “five years” vs “20 years”) and one figure for doors or projects delivered.</li>
+            <li>WhatsApp Business number (the prototype assumes +91 99860 69020), street address and PIN code, and the real closing time.</li>
+            <li>For each collection: sizes, leaf thickness, core and timber grade, finishes, hardware and warranty.</li>
+            <li>The catalogue PDF, and the meaning of the second number on catalogue labels.</li>
+            <li>The three guides: fact-check the claims before they are published.</li>
+            <li>Whether “waterproof” and “termite-proof” WPC claims are covered by the manufacturer's spec.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc-section" aria-labelledby="h-how">
+      <h2 class="t-h2" id="h-how">How to review</h2>
+      <ul class="bullets">
+        <li>Open <code>home.html</code> in Chrome, Edge or Safari. It needs an internet connection for fonts and the motion libraries.</li>
+        <li>Phone view: browser dev tools, device toolbar, 390 × 844. The sticky Call, WhatsApp and Get a Quote bar appears below 1024px.</li>
+        <li>Add <code>?hero=full</code> for the full-bleed hero, <code>?grid=1</code> to overlay the 12-column grid, <code>?intro=first</code> to replay the first-visit intro.</li>
+        <li>Turn on “reduce motion” in your operating system to see the fallback: fades only, no pinning, no smooth scroll.</li>
+        <li>Links to pages that arrive in Phase 2 show a short notice instead of a broken page.</li>
+      </ul>
+      <p class="t-small t-muted" style="margin-top:var(--s-4)">Next, after your feedback. Phase 2: Doors overview, collection and door detail templates, About, Services, Contact, desktop and mobile, plus form success and 404 states. Phase 3: motion spec table, content-needed list, photo shot list and the Next.js + Tailwind + GSAP + Motion build notes.</p>
+    </section>
+  </main>
+
+  <div class="wipe" aria-hidden="true" data-wipe><span class="wipe__edge"></span></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@12.23.12/dist/motion.js"></script>
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>

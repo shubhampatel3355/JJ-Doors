@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JJ Doors Hero Options</title>
+  <meta name="description" content="Two video hero treatments for the JJ Doors homepage, live at 1440px and 390px, with a recommendation.">
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try { if (sessionStorage.getItem("jj-wipe") === "1") { d.classList.add("wipe-in"); sessionStorage.removeItem("jj-wipe"); } } catch (e) {}
+      setTimeout(function () { d.classList.remove("wipe-in"); }, 3000);
+    })();
+  </script>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- One request per family: Fontshare drops the second family in combined requests -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,400i,500,600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="doc-bar">
+    <div class="wrap doc-bar__inner">
+      <a class="doc-bar__logo" href="index.html" aria-label="Review hub"><img src="assets/img/brand/jj-doors-logo-480.png" width="480" height="192" alt="JJ Doors and Plywood"></a>
+      <p class="doc-bar__title">Website redesign, Phase 1</p>
+      <nav aria-label="Review pages">
+        <a href="index.html">Overview</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="design-system.html">Design system</a>
+        <a href="heroes.html" aria-current="page">Heroes</a>
+        <a href="home.html">Homepage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc" data-page>
+    <div class="doc-head">
+      <h1 class="t-display-l">Two video heroes</h1>
+      <p class="t-lede">The homepage opens with the brand film, as on the current site. Same words, two ways to frame it. Each preview below is the live prototype; scroll inside it or replay the intro.</p>
+      <div class="callout" style="margin-top:var(--s-5)">
+        <p><strong>The film.</strong> The current site's hero video, trimmed to 15.7 seconds so it no longer ends on the shield “J” logo, with sound removed and compressed from 11 MB to 0.7 MB on phones and 1.7 MB on desktop. It is a CG render, not filmed footage. <span class="ph-text">[PLACEHOLDER: confirm the door shown is a JJ design, and plan a real filmed replacement]</span></p>
+        <p><strong>Copy, both options.</strong> Headline: “Every home begins at the door.” (6 words, adapted from the current About line “Every doorway is the first impression of your sanctuary”). Subtext: “Carved teak entrance and pooja doors, with veneer, primer and WPC doors for every room. Made in Bangalore.” (18 words). CTAs: Get a Quote, Explore doors.</p>
+      </div>
+    </div>
+
+    <div class="hero-compare">
+      <!-- Option A: framed -->
+      <section class="hero-option" aria-labelledby="opt-a">
+        <div class="hero-option__head">
+          <h2 class="t-h2" id="opt-a">A. The framed film</h2>
+          <span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Recommended</span>
+        </div>
+        <div class="frames">
+          <div class="device">
+            <p class="device__label"><span>1440 × 900</span><span><button class="link" type="button" data-replay="fa-d">Replay intro</button> · <a href="home.html?intro=first">Open full size</a></span></p>
+            <div class="device__screen" data-w="1440" data-h="900"><iframe id="fa-d" title="Framed video hero at 1440 pixels" data-src="home.html?frame=1&amp;intro=first" loading="lazy"></iframe></div>
+          </div>
+          <div class="device device--phone">
+            <p class="device__label"><span>390 × 844</span><button class="link" type="button" data-replay="fa-m">Replay</button></p>
+            <div class="device__screen" data-w="390" data-h="844" data-max="0.72"><iframe id="fa-m" title="Framed video hero at 390 pixels" data-src="home.html?frame=1&amp;intro=first" loading="lazy"></iframe></div>
+          </div>
+        </div>
+        <div class="pro-con">
+          <div>
+            <h3>Why it works</h3>
+            <ul class="bullets">
+              <li>The headline sits on the light page, so it always reads, whatever frame the film is on.</li>
+              <li>The film bleeds off the right edge and stands on the threshold line; a panel slides away to start it, like a door opening.</li>
+              <li>Keeps the site light, so the craft section stays the one dark moment.</li>
+              <li>On phones the copy and both buttons come first; the film runs edge to edge just below.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Trade-offs</h3>
+            <ul class="bullets">
+              <li>Less immersive than a full-screen film.</li>
+              <li>The square crop trims the sides of the wide room shot (the door itself stays in view).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Option B: full-bleed -->
+      <section class="hero-option" aria-labelledby="opt-b">
+        <div class="hero-option__head">
+          <h2 class="t-h2" id="opt-b">B. The full-bleed film</h2>
+          <span class="pill pill--note">Alternative</span>
+        </div>
+        <div class="frames">
+          <div class="device">
+            <p class="device__label"><span>1440 × 900</span><span><button class="link" type="button" data-replay="fb-d">Replay intro</button> · <a href="home.html?hero=full&amp;intro=first">Open full size</a></span></p>
+            <div class="device__screen" data-w="1440" data-h="900"><iframe id="fb-d" title="Full-bleed video hero at 1440 pixels" data-src="home.html?hero=full&amp;frame=1&amp;intro=first" loading="lazy"></iframe></div>
+          </div>
+          <div class="device device--phone">
+            <p class="device__label"><span>390 × 844</span><button class="link" type="button" data-replay="fb-m">Replay</button></p>
+            <div class="device__screen" data-w="390" data-h="844" data-max="0.72"><iframe id="fb-m" title="Full-bleed video hero at 390 pixels" data-src="home.html?hero=full&amp;frame=1&amp;intro=first" loading="lazy"></iframe></div>
+          </div>
+        </div>
+        <div class="pro-con">
+          <div>
+            <h3>Why it works</h3>
+            <ul class="bullets">
+              <li>Closest to the current site: the film fills the whole first screen.</li>
+              <li>The full room shot shows at its natural width.</li>
+              <li>Copy sits on a solid Ink panel, so contrast holds on every frame.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Trade-offs</h3>
+            <ul class="bullets">
+              <li>Adds a second dark area to a light site (the brief allows one).</li>
+              <li>The nav has to stay solid from the start, so it cannot be transparent over the hero.</li>
+              <li>The text panel covers part of the film on phones.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="doc-section" style="margin-top:var(--s-8)" aria-labelledby="rec">
+      <h2 class="t-h2" id="rec">Recommendation</h2>
+      <p class="t-lede" style="max-width:60ch;margin-top:var(--s-2)">Go with A. It keeps the film you asked for while protecting legibility and the light, architectural feel, and it keeps the door-opening reveal as the first impression.</p>
+      <p class="t-small t-muted" style="margin-top:var(--s-3)">Both respect reduced motion and Data Saver: the film then shows its first frame with a play button instead of autoplaying.</p>
+    </section>
+  </main>
+
+  <div class="wipe" aria-hidden="true" data-wipe><span class="wipe__edge"></span></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@12.23.12/dist/motion.js"></script>
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>

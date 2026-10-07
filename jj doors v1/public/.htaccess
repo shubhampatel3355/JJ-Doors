@@ -1,0 +1,22 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# Directory index file
+DirectoryIndex index.html
+
+# Prevent folder listing
+Options -Indexes
+
+# If requested file or directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect clean URLs to directory index or .html if needed
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Fallback 404 handler
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html

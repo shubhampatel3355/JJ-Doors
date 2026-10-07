@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JJ Doors Discovery</title>
+  <meta name="description" content="Step 1 for the JJ Doors redesign: content inventory of the current site, teardown of the reference, design read and sitemap.">
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try { if (sessionStorage.getItem("jj-wipe") === "1") { d.classList.add("wipe-in"); sessionStorage.removeItem("jj-wipe"); } } catch (e) {}
+      setTimeout(function () { d.classList.remove("wipe-in"); }, 3000);
+    })();
+  </script>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- One request per family: Fontshare drops the second family in combined requests -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,400i,500,600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="doc-bar">
+    <div class="wrap doc-bar__inner">
+      <a class="doc-bar__logo" href="index.html" aria-label="Review hub"><img src="assets/img/brand/jj-doors-logo-480.png" width="480" height="192" alt="JJ Doors and Plywood"></a>
+      <p class="doc-bar__title">Website redesign, Phase 1</p>
+      <nav aria-label="Review pages">
+        <a href="index.html">Overview</a>
+        <a href="discovery.html" aria-current="page">Discovery</a>
+        <a href="design-system.html">Design system</a>
+        <a href="heroes.html">Heroes</a>
+        <a href="home.html">Homepage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc" data-page>
+    <div class="doc-head">
+      <h1 class="t-display-l">Discovery</h1>
+      <p class="t-lede">Step 1: what the current site actually says, what the reference does well, and the plan that follows from both.</p>
+      <p class="doc-meta">Sources, 7 October 2026: the live site at blanchedalmond-mantis-796419.hostingersite.com (every page), its Supabase catalogue (read only), the extracted 2026–28 catalogue images and name sheet, the logo files, the project code, and aakarply.com. Not supplied in the project: the catalogue PDF and the full-page screenshots of both sites.</p>
+      <nav class="doc-toc" aria-label="On this page">
+        <a href="#inventory">a) Content inventory</a><a href="#products">Collections and products</a><a href="#flags">Flags</a><a href="#imagery">Imagery audit</a><a href="#teardown">b) Reference teardown</a><a href="#plan">c) Design read and sitemap</a>
+      </nav>
+    </div>
+
+    <!-- ===================== a) Inventory ===================== -->
+    <section class="doc-section" id="inventory" aria-labelledby="h-inv">
+      <h2 class="t-h2" id="h-inv">a) Content inventory</h2>
+      <p class="intro">Everything below is quoted or counted from the current site and its data. Nothing is added.</p>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Pages and sections</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Page</th><th scope="col">Sections today</th><th scope="col">Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Home</td><td>Video hero, marquee, counters, “Mastering the art of door craftsmanship”, featured collections, contact form and map, 3 blog cards, CTA band, footer</td><td>Hero is a CG video with no headline. Counters render “0+” until scripts run.</td></tr>
+              <tr><td>About</td><td>“Who we are”, 4 highlight cards, 4-step process, mission, vision and values, 4 stats, testimonials slider, CTA band</td><td>Repeats the Home “why” block.</td></tr>
+              <tr><td>Products</td><td>Full-screen slideshow of the 8 collections (loaded from Supabase)</td><td>No copy beyond collection names.</td></tr>
+              <tr><td>Shop (collection pages)</td><td>Product grid per collection with search and a lightbox</td><td>375 products, code and image only.</td></tr>
+              <tr><td>Blog</td><td>3 articles (dated August 2024): carved pooja doors, veneer vs laminated, WPC for bathrooms</td><td>Contains claims to verify, such as “fire-retardant” and “100% warp-free for decades”.</td></tr>
+              <tr><td>Contact</td><td>4 contact cards, enquiry form, map</td><td>Form asks for email but not phone.</td></tr>
+              <tr><td>Privacy Policy, Terms and Conditions</td><td>Full legal pages, last updated 15 September 2026</td><td>Solid; carry over.</td></tr>
+              <tr><td>Admin (internal)</td><td>Login, dashboard, categories, products</td><td>Must keep working in the rebuild.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Company and about</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Fact</th><th scope="col">As stated</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>Brand</td><td>JJ Doors. Logo lockup reads “JJ Doors &amp; Plywood · Leading the way ®”</td><td><span class="pill pill--note">Plywood appears nowhere else</span></td></tr>
+              <tr><td>Manufacturer</td><td>Jalaram Associates, Bangalore, Karnataka</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Consistent</span></td></tr>
+              <tr><td>Contact person</td><td>Mr. Gunavanth Patel</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Consistent</span></td></tr>
+              <tr><td>Established</td><td>“Established in the year 2011” (About, Home)</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>Conflicts with “Five years leading…” and a client’s “Since 20 years”</span></td></tr>
+              <tr><td>What they do</td><td>“Manufacturing, exporting and supplying” elaborately crafted doors</td><td><span class="pill pill--note">Export not evidenced elsewhere</span></td></tr>
+              <tr><td>Where</td><td>“Homes, temples, offices and commercial spaces all over India”; About stats add “Across India and Abroad”</td><td><span class="pill pill--note">Abroad to confirm</span></td></tr>
+              <tr><td>Design library</td><td>“Data bank of over 500 designs”</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Consistent</span></td></tr>
+              <tr><td>Range wording</td><td>“Entrance Doors, Pooja Doors, Internal Doors, and Wooden Doors”</td><td><span class="pill pill--note">Older wording; catalogue has 8 collections</span></td></tr>
+              <tr><td>Process</td><td>Wood sourcing and kiln seasoning; sacred and architectural design (Vastu); master hand carving (deities, kalash, floral borders, brass inlays); finishing and quality testing</td><td><span class="pill pill--note">Plausible, needs real photos</span></td></tr>
+              <tr><td>Numbers</td><td>Home: 14+ years, 500+ designs, 2,500+ projects. About: 14+ years, 500+ designs, 10,000+ doors, 100% seasoned hardwood</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>Conflict: projects vs doors; 14+ should be 15 in 2026</span></td></tr>
+              <tr><td>Mission, vision, values</td><td>“India’s most cherished handcrafted door atelier”, “sacred Vedic artistry”, “unmatched lifetime quality”</td><td><span class="pill pill--note">Generic and unverifiable; drop or rewrite with the client</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Services (scattered, no page today)</h3>
+        <ul class="bullets">
+          <li>Custom sizes and custom designs, Vastu-aligned drawings (process copy, blog).</li>
+          <li>Door frames: “vaskal frame crafting”, “Timber for door frames is also available” (Home copy, testimonial); WPC and UV coated frames (catalogue).</li>
+          <li>Site measurement shared for approval (Terms and Conditions).</li>
+          <li>Delivery and installation, installation charged separately unless quoted (Terms); “turnkey installation” (marquee).</li>
+          <li>Polish and paint (testimonial).</li>
+          <li>After-sales support and warranty “as stated in your quotation or invoice” (Privacy, Terms).</li>
+        </ul>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Contact and socials</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <tbody>
+              <tr><th scope="row">Phone</th><td>+91 99860 69020 (Mr. Gunavanth Patel)</td></tr>
+              <tr><th scope="row">Email</th><td>care@jjdoors.com (the code stores it with a leading space, which breaks some mail links)</td></tr>
+              <tr><th scope="row">Address</th><td>“Bangalore, Karnataka” only. No street, no PIN code.</td></tr>
+              <tr><th scope="row">Map</th><td>A search link for “Jalaram Associates Bangalore”; the embedded map shows the whole city.</td></tr>
+              <tr><th scope="row">Hours</th><td>Mon to Sat 9am to 11pm, Sunday 11am to 5pm. 11pm looks like a typo.</td></tr>
+              <tr><th scope="row">WhatsApp</th><td>Only a WhatsApp Channel link. No chat number is published.</td></tr>
+              <tr><th scope="row">Socials</th><td>Facebook: facebook.com/jalaramgroups · Instagram: @jj__doors · WhatsApp Channel</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Testimonials and projects</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Name and label on site</th><th scope="col">Gist</th></tr></thead>
+            <tbody>
+              <tr><td>Mr. Chandresekhar, Builder and Developer</td><td>“2 Apartments, 300 flats and approximately 1600 Doors… our clients are extremely happy with the design and quality.”</td></tr>
+              <tr><td>Mr. Pavan, Architect and Consultant</td><td>“We can close our eyes and select any design. For the last 5 years our architectural firm has been associated with them.”</td></tr>
+              <tr><td>Sanjay Vaidesh, Residential Client</td><td>End-to-end service “from vaskal making to door installation, polish and paint.”</td></tr>
+              <tr><td>Swetha Suresh, Verified Homeowner</td><td>Wide range of designs; “Timber for door frames is also available here.”</td></tr>
+              <tr><td>Shiv Kumar, Loyal Client</td><td>Quality timber at reasonable prices, “since 20 years”.</td></tr>
+              <tr><td>Vinesh Rajan, Homeowner</td><td>Explains every wood type, no upsell pressure.</td></tr>
+              <tr><td>Mr. Suresh, Property Owner</td><td>“The best combination of artistic design and long-lasting durability.”</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="t-small t-muted" style="margin-top:12px">They read like Google reviews, but the source and permission are not recorded and labels such as “Verified Homeowner” look template-made. <strong>Projects: none.</strong> The portfolio data in the code is template filler (“Nova Scotia Winery” and similar), so there is no Projects page.</p>
+      </div>
+    </section>
+
+    <!-- ===================== Products ===================== -->
+    <section class="doc-section" id="products" aria-labelledby="h-prod">
+      <h2 class="t-h2" id="h-prod">Collections and products</h2>
+      <p class="intro">8 collections and 375 live products in the 2026–28 catalogue. Every product is a model code and one image. There are no descriptions, sizes, thicknesses, cores, materials or finishes anywhere, and every collection description reads “Custom door collection engineered by JJ Doors.”</p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th scope="col">Collection</th><th scope="col">Live</th><th scope="col">Model codes</th><th scope="col">Descriptor used today</th></tr></thead>
+          <tbody>
+            <tr><td>Teak Main Doors</td><td>134</td><td>JJ 1 to JJ 494, PG 2, PG 15. Five more in the folder (JJ 2000 to 2004) are not live</td><td>“Handcrafted Teak”, “Grand Entrance and Vastu Compliant”</td></tr>
+            <tr><td>Teak Pooja Doors</td><td>53</td><td>JJ 2005 to JJ 2056, PG 61</td><td>“Intricate Carving”, “Spiritual and Traditional Sanctity”</td></tr>
+            <tr><td>Teak Architecture Doors</td><td>52</td><td>JJ 1000 to JJ 1051</td><td>None</td></tr>
+            <tr><td>Veneer Doors</td><td>52</td><td>V 1501 to V 1552; some carry (TEAK), (TEAK HZ), (TEAK CROWN UP &amp; DOWN)</td><td>“Natural Wood Finish”, “Luxury Architectural Interiors”</td></tr>
+            <tr><td>Premium Primer Doors</td><td>27</td><td>JJ PC24PP to JJ PC54PP</td><td>“Ready to Paint”, “Custom Color and Smooth Coat”</td></tr>
+            <tr><td>Primer Doors</td><td>19</td><td>JJ PC01 to JJ PC42</td><td>“Cost-Effective”, “Commercial and Residential Utility”</td></tr>
+            <tr><td>WPC Doors (and frames)</td><td>36</td><td>JJ WPC01 to JJ WPC54</td><td>“100% Waterproof”, “Zero Termite, Moisture Proof”</td></tr>
+            <tr><td>UV Coated Doors (and frames)</td><td>2</td><td>JJ 101, JJ 102</td><td>None</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="doc-sub">
+        <h3 class="t-h4">Every live model code</h3>
+        <div style="margin-top:8px">
+<details class="collection"><summary>Teak Main Doors <span>134 live</span></summary><div class="codes"><span>JJ 1</span><span>JJ 2</span><span>JJ 3</span><span>JJ 4</span><span>JJ 6</span><span>JJ 117</span><span>JJ 118</span><span>JJ 120</span><span>JJ 124</span><span>JJ 126</span><span>JJ 127</span><span>JJ 129</span><span>JJ 131</span><span>JJ 132</span><span>JJ 134</span><span>JJ 137</span><span>JJ 138</span><span>JJ 139</span><span>JJ 141</span><span>JJ 142</span><span>JJ 146</span><span>JJ 149</span><span>JJ 150</span><span>JJ 153</span><span>JJ 154</span><span>JJ 155</span><span>JJ 167</span><span>JJ 168</span><span>JJ 169</span><span>JJ 178</span><span>JJ 179</span><span>JJ 180</span><span>JJ 181</span><span>JJ 184</span><span>JJ 186</span><span>JJ 187</span><span>JJ 192</span><span>JJ 193</span><span>JJ 194</span><span>JJ 195</span><span>JJ 196</span><span>JJ 197</span><span>JJ 200</span><span>JJ 310</span><span>JJ 311</span><span>JJ 312</span><span>JJ 317</span><span>JJ 319</span><span>JJ 320</span><span>JJ 321</span><span>JJ 323</span><span>JJ 324</span><span>JJ 325</span><span>JJ 328</span><span>JJ 329</span><span>JJ 335</span><span>JJ 401</span><span>JJ 403</span><span>JJ 405 GANESHJI</span><span>JJ 405 LAXMI</span><span>JJ 408</span><span>JJ 409</span><span>JJ 411</span><span>JJ 412</span><span>JJ 413</span><span>JJ 414</span><span>JJ 416</span><span>JJ 418</span><span>JJ 421</span><span>JJ 425</span><span>JJ 426</span><span>JJ 427</span><span>JJ 429</span><span>JJ 431</span><span>JJ 433</span><span>JJ 434 GANESHI</span><span>JJ 434 LAXMI</span><span>JJ 435</span><span>JJ 436</span><span>JJ 438</span><span>JJ 441</span><span>JJ 443</span><span>JJ 445</span><span>JJ 446</span><span>JJ 447</span><span>JJ 448</span><span>JJ 449</span><span>JJ 450</span><span>JJ 451</span><span>JJ 452</span><span>JJ 453</span><span>JJ 454</span><span>JJ 455</span><span>JJ 456</span><span>JJ 457</span><span>JJ 458</span><span>JJ 459</span><span>JJ 460</span><span>JJ 461</span><span>JJ 462</span><span>JJ 463</span><span>JJ 464</span><span>JJ 465</span><span>JJ 466</span><span>JJ 467</span><span>JJ 468</span><span>JJ 469</span><span>JJ 470</span><span>JJ 471</span><span>JJ 472</span><span>JJ 473</span><span>JJ 474</span><span>JJ 475</span><span>JJ 476</span><span>JJ 477</span><span>JJ 478</span><span>JJ 479</span><span>JJ 480</span><span>JJ 481</span><span>JJ 482</span><span>JJ 483</span><span>JJ 484</span><span>JJ 485</span><span>JJ 486</span><span>JJ 487</span><span>JJ 488</span><span>JJ 489</span><span>JJ 490</span><span>JJ 491</span><span>JJ 492</span><span>JJ 493</span><span>JJ 494</span><span>PG 2</span><span>PG 15</span></div></details>
+<details class="collection"><summary>Teak Pooja Doors <span>53 live</span></summary><div class="codes"><span>JJ 2005</span><span>JJ 2006</span><span>JJ 2007</span><span>JJ 2008</span><span>JJ 2009</span><span>JJ 2010</span><span>JJ 2011</span><span>JJ 2012</span><span>JJ 2013</span><span>JJ 2014</span><span>JJ 2015</span><span>JJ 2016</span><span>JJ 2017</span><span>JJ 2018</span><span>JJ 2019</span><span>JJ 2020</span><span>JJ 2021</span><span>JJ 2022</span><span>JJ 2023</span><span>JJ 2024</span><span>JJ 2025</span><span>JJ 2026</span><span>JJ 2027</span><span>JJ 2028</span><span>JJ 2029</span><span>JJ 2030</span><span>JJ 2031</span><span>JJ 2032</span><span>JJ 2033</span><span>JJ 2034</span><span>JJ 2035</span><span>JJ 2036</span><span>JJ 2037</span><span>JJ 2038</span><span>JJ 2039</span><span>JJ 2040</span><span>JJ 2041</span><span>JJ 2042</span><span>JJ 2043</span><span>JJ 2044</span><span>JJ 2045</span><span>JJ 2046</span><span>JJ 2047</span><span>JJ 2048</span><span>JJ 2049</span><span>JJ 2050</span><span>JJ 2051</span><span>JJ 2052</span><span>JJ 2053</span><span>JJ 2054</span><span>JJ 2055</span><span>JJ 2056</span><span>PG 61</span></div></details>
+<details class="collection"><summary>Teak Architecture Doors <span>52 live</span></summary><div class="codes"><span>JJ 1000</span><span>JJ 1001</span><span>JJ 1002</span><span>JJ 1003</span><span>JJ 1004</span><span>JJ 1005</span><span>JJ 1006</span><span>JJ 1007</span><span>JJ 1008</span><span>JJ 1009</span><span>JJ 1010</span><span>JJ 1011</span><span>JJ 1012</span><span>JJ 1013</span><span>JJ 1014</span><span>JJ 1015</span><span>JJ 1016</span><span>JJ 1017</span><span>JJ 1018</span><span>JJ 1019</span><span>JJ 1020</span><span>JJ 1021</span><span>JJ 1022</span><span>JJ 1023</span><span>JJ 1024</span><span>JJ 1025</span><span>JJ 1026</span><span>JJ 1027</span><span>JJ 1028</span><span>JJ 1029</span><span>JJ 1030</span><span>JJ 1031</span><span>JJ 1032</span><span>JJ 1033</span><span>JJ 1034</span><span>JJ 1035</span><span>JJ 1036</span><span>JJ 1037</span><span>JJ 1038</span><span>JJ 1039</span><span>JJ 1040</span><span>JJ 1041</span><span>JJ 1042</span><span>JJ 1043</span><span>JJ 1044</span><span>JJ 1045</span><span>JJ 1046</span><span>JJ 1047</span><span>JJ 1048</span><span>JJ 1049</span><span>JJ 1050</span><span>JJ 1051</span></div></details>
+<details class="collection"><summary>Veneer Doors <span>52 live</span></summary><div class="codes"><span>V 1501 (TEAK)</span><span>V 1502 (TEAK)</span><span>V 1503 (TEAK)</span><span>V 1504 (TEAK)</span><span>V 1505 (TEAK)</span><span>V 1506 (TEAK)</span><span>V 1507</span><span>V 1508</span><span>V 1509</span><span>V 1510</span><span>V 1511</span><span>V 1512</span><span>V 1513</span><span>V 1514</span><span>V 1515</span><span>V 1516</span><span>V 1517</span><span>V 1518</span><span>V 1519</span><span>V 1520</span><span>V 1521</span><span>V 1522</span><span>V 1523</span><span>V 1524</span><span>V 1525</span><span>V 1526</span><span>V 1527</span><span>V 1528</span><span>V 1529</span><span>V 1530</span><span>V 1531</span><span>V 1532</span><span>V 1533</span><span>V 1534</span><span>V 1535</span><span>V 1536</span><span>V 1537</span><span>V 1538</span><span>V 1539</span><span>V 1540</span><span>V 1541</span><span>V 1542</span><span>V 1543</span><span>V 1544</span><span>V 1545</span><span>V 1546</span><span>V 1547</span><span>V 1548</span><span>V 1549</span><span>V 1550</span><span>V 1551 (TEAK HZ)</span><span>V 1552 (TEAK CROWN UP &amp; DOWN)</span></div></details>
+<details class="collection"><summary>Premium Primer Doors <span>27 live</span></summary><div class="codes"><span>JJ PC24PP</span><span>JJ PC26PP</span><span>JJ PC27PP</span><span>JJ PC28PP</span><span>JJ PC29PP</span><span>JJ PC30PP</span><span>JJ PC31PP</span><span>JJ PC32PP</span><span>JJ PC33PP</span><span>JJ PC34PP</span><span>JJ PC35PP</span><span>JJ PC36PP</span><span>JJ PC37PP</span><span>JJ PC38PP</span><span>JJ PC39</span><span>JJ PC43PP</span><span>JJ PC44PP</span><span>JJ PC45PP</span><span>JJ PC46PP</span><span>JJ PC47PP</span><span>JJ PC48PP</span><span>JJ PC49PP</span><span>JJ PC50PP</span><span>JJ PC51PP</span><span>JJ PC52PP</span><span>JJ PC53PP</span><span>JJ PC54PP</span></div></details>
+<details class="collection"><summary>Primer Doors <span>19 live</span></summary><div class="codes"><span>JJ PC01</span><span>JJ PC05</span><span>JJ PC06</span><span>JJ PC07</span><span>JJ PC08</span><span>JJ PC09</span><span>JJ PC11</span><span>JJ PC13</span><span>JJ PC14</span><span>JJ PC15</span><span>JJ PC16</span><span>JJ PC17</span><span>JJ PC18</span><span>JJ PC19</span><span>JJ PC20</span><span>JJ PC21</span><span>JJ PC40</span><span>JJ PC41</span><span>JJ PC42</span></div></details>
+<details class="collection"><summary>WPC Doors <span>36 live</span></summary><div class="codes"><span>JJ WPC01</span><span>JJ WPC03</span><span>JJ WPC04</span><span>JJ WPC06</span><span>JJ WPC07</span><span>JJ WPC08</span><span>JJ WPC10</span><span>JJ WPC11</span><span>JJ WPC12</span><span>JJ WPC16</span><span>JJ WPC17</span><span>JJ WPC18</span><span>JJ WPC19</span><span>JJ WPC20</span><span>JJ WPC22</span><span>JJ WPC23</span><span>JJ WPC24</span><span>JJ WPC34</span><span>JJ WPC35</span><span>JJ WPC36</span><span>JJ WPC37</span><span>JJ WPC38</span><span>JJ WPC39</span><span>JJ WPC40</span><span>JJ WPC41</span><span>JJ WPC42</span><span>JJ WPC43</span><span>JJ WPC44</span><span>JJ WPC45</span><span>JJ WPC46</span><span>JJ WPC49</span><span>JJ WPC50</span><span>JJ WPC51</span><span>JJ WPC52</span><span>JJ WPC53</span><span>JJ WPC54</span></div></details>
+<details class="collection"><summary>UV Coated Doors <span>2 live</span></summary><div class="codes"><span>JJ 101</span><span>JJ 102</span></div></details>
+        </div>
+        <p class="t-small t-muted" style="margin-top:12px">Naming issues: “JJ 405 GANESHI” in the catalogue is “JJ 405 GANESHJI” on the site. PG 2, PG 15 and PG 61 are catalogue page numbers, not model codes. Several catalogue images carry a green label with a second number (for example “JJ 1000 · 15”, “PG 2 · 10”) whose meaning is unknown: thickness, price band or warranty?</p>
+      </div>
+    </section>
+
+    <!-- ===================== Flags ===================== -->
+    <section class="doc-section" id="flags" aria-labelledby="h-flags">
+      <h2 class="t-h2" id="h-flags">Missing, thin, duplicated, wrong</h2>
+      <div class="cols cols--2">
+        <div class="callout callout--warn">
+          <p><strong>Live template leftovers.</strong> The header and side menu still show “27 Division St, New York, NY 10002, USA”, “+1 800 123 654 987”, “frisk.agency@mail.com” and “We are digital agency that helps businesses develop immersive and engaging”. The 404 title reads “Frisk, Creative Agency and Portfolio Nextjs Template”. Grey “1920X800” placeholder images show whenever the catalogue fails to load. Fix these on the live site now, before the redesign.</p>
+        </div>
+        <div class="callout callout--warn">
+          <p><strong>Conflicts.</strong> Founded 2011 vs “five years” vs “20 years”. 2,500+ projects vs 10,000+ doors. Collection lists in the code include Laminated and Moulded Skin doors (not in the catalogue) and omit Teak Architecture and UV Coated. Hours to 11pm. Two different logos in use (oval “JJ” in logo.png; shield “J” in logo.svg, the favicon, the hero video and about.jpeg), plus a third brand, “JFOUR Doors &amp; Plywood”, in logo/2.jpeg.</p>
+        </div>
+      </div>
+      <div class="cols cols--3" style="margin-top:var(--gutter)">
+        <div>
+          <h3 class="t-h4">Missing</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Street address, PIN code, map pin</li>
+            <li>WhatsApp chat number</li>
+            <li>Every spec: sizes, thickness, core, timber grade, finishes, hardware</li>
+            <li>Collection descriptions</li>
+            <li>Catalogue PDF</li>
+            <li>Real photography of any kind beyond catalogue cut-outs</li>
+            <li>Warranty terms, certifications, GST</li>
+            <li>Projects, dealer information</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-h4">Thin</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>About copy is formulaic</li>
+            <li>Services exist only as scattered mentions</li>
+            <li>Product pages are a code and an image</li>
+            <li>Contact form collects email but not phone, the channel Indian buyers prefer</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-h4">Duplicated</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Home “why” block repeats About “who we are” with the same image</li>
+            <li>Contact form on Home and Contact</li>
+            <li>The same CTA band on every page</li>
+            <li>Two sets of counters that disagree</li>
+          </ul>
+        </div>
+      </div>
+      <p class="t-small t-muted" style="margin-top:var(--s-4)"><strong>Audience.</strong> Testimonials confirm homeowners, builders and developers, and architects. Interior designers are implied. Nothing targets dealers, so no dealer section until the client asks for one.</p>
+    </section>
+
+    <!-- ===================== Imagery ===================== -->
+    <section class="doc-section" id="imagery" aria-labelledby="h-img">
+      <h2 class="t-h2" id="h-img">Imagery audit</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th scope="col">Asset</th><th scope="col">What it is</th><th scope="col">Use?</th></tr></thead>
+          <tbody>
+            <tr><td>logo.png (3106 × 1241, transparent)</td><td>Supplied oval “JJ Doors &amp; Plywood” lockup</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Yes, as supplied</span></td></tr>
+            <tr><td>380 catalogue images</td><td>Real product photos: front-on, full-bleed door leaves, 375 to 806px wide. Teak and veneer at 1:2; primer, WPC and UV already at 3:7</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>Yes, all photography in the prototype</span></td></tr>
+            <tr><td>main-video.mp4 (hero)</td><td>CG render of a door, ending on the shield “J” logo</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>No: not real, wrong logo</span></td></tr>
+            <tr><td>8 collection videos (Supabase)</td><td>AI renders of doors in deserts, seas, flower fields</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>No</span></td></tr>
+            <tr><td>blog/1–3.png, home/1.png</td><td>AI images; three carry the Gemini sparkle watermark</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>No</span></td></tr>
+            <tr><td>about.jpeg, background/bg.png, ab.jpeg</td><td>AI mock-up of a redrawn logo; resin river table; wood texture</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>No</span></td></tr>
+            <tr><td>portfolio images</td><td>Grey “1920X800” template placeholders</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>No</span></td></tr>
+            <tr><td>logo.svg, logo-l.svg, favicon</td><td>Shield “J” logo system, dark and reversed</td><td><span class="pill pill--note">Client to choose the master logo</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== b) Teardown ===================== -->
+    <section class="doc-section" id="teardown" aria-labelledby="h-tear">
+      <h2 class="t-h2" id="h-tear">b) Reference teardown: aakarply.com</h2>
+      <p class="intro">Studied for structure and quality bar only. Nothing below is copied.</p>
+      <div class="table-wrap">
+        <table class="table">
+          <tbody>
+            <tr><th scope="row">Grid and margins</th><td>1320px max width, gutter clamp(20 to 72px). Layouts are fractional two-column splits (1.15/0.85, 1.1/0.9), not a strict 12-column grid.</td></tr>
+            <tr><th scope="row">Type</th><td>Clash Display 600 for display, clamp(2.7 to 7.5rem), line height 0.94, tracking −3.5%. Satoshi body at 16 to 18px, line height 1.55. JetBrains Mono for uppercase eyebrow labels (0.72rem, +28% tracking) above almost every section.</td></tr>
+            <tr><th scope="row">Spacing rhythm</th><td>Section padding clamp(72 to 150px); reveals stagger in 80ms steps.</td></tr>
+            <tr><th scope="row">Nav</th><td>Fixed 78px bar, transparent over a dark hero, frosted light glass after 60px; products dropdown; quote button. Phones get a circle-wipe full-screen menu with numbered links (00 to 04).</td></tr>
+            <tr><th scope="row">Hero</th><td>Dark wood-grain texture with a green radial glow, copy left, 4:5 image right with 18px corners, a pulsing status chip, three stats under a hairline, a bobbing scroll cue.</td></tr>
+            <tr><th scope="row">Products</th><td>Two large cards with 16:10 images, 20px radius, lift and shadow on hover; four brand cards.</td></tr>
+            <tr><th scope="row">Order and pacing</th><td>Dark hero, dark marquee, light intro, dark principles, light products, mint brands, dark factory with parallax, mint trust, light certificates, dark CTA, dark footer with a giant faded wordmark. Light and dark swap almost every section.</td></tr>
+            <tr><th scope="row">Image treatment</th><td>Rounded frames, inner hairline borders, gradient scrims, wood texture and grain overlays.</td></tr>
+            <tr><th scope="row">Motion</th><td>1.5s veneer-layer loader; fade-up reveals at 0.9s with cubic-bezier(.22,1,.36,1); line-mask headings; parallax at 0.12; counters over 1.6s; magnetic buttons and tilt cards; scroll progress bar; infinite marquee, pulse, bob and texture drift.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols cols--2" style="margin-top:var(--s-6)">
+        <div>
+          <h3 class="t-h3">Principles we borrow</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Large confident display type against small calm body text, tight negative tracking.</li>
+            <li>Generous, consistent section rhythm.</li>
+            <li>Headlines that rise line by line behind a mask.</li>
+            <li>A single easing family across the site.</li>
+            <li>Counters only where the numbers are real.</li>
+            <li>One clear quote CTA, repeated with discipline.</li>
+            <li>Material-led storytelling: the product is the hero.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-h3">How JJ Doors will be different</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Light throughout, with one dark showcase entered by a scroll-linked colour change (theirs alternates almost every section).</li>
+            <li>A strict 12-column grid with square corners (theirs: fractional splits, 18 to 20px radii, pill buttons).</li>
+            <li>Our own devices: the 3:7 door leaf and the green threshold line.</li>
+            <li>No eyebrow labels, no mono type, no numbering.</li>
+            <li>No glow, glass, grain, textures or gradients; no infinite loops, magnetic or tilt effects.</li>
+            <li>Products before principles: a pinned horizontal scroll of 8 collections instead of card grids.</li>
+            <li>Mobile-first enquiry built around WhatsApp and calls for ad traffic.</li>
+            <li>Different typefaces, colours, copy and section compositions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== c) Plan ===================== -->
+    <section class="doc-section" id="plan" aria-labelledby="h-plan">
+      <h2 class="t-h2" id="h-plan">c) Design read and sitemap</h2>
+      <p class="t-display-l" style="max-width:20ch;margin-block:var(--s-3) var(--s-6)">A quiet gallery of doors, with a thin line of light under every threshold.</p>
+      <div class="cols cols--2">
+        <div class="tree">
+          <p><strong>Home</strong></p>
+          <ul>
+            <li><strong>Doors</strong> (overview with filter chips)
+              <ul>
+                <li>8 collection pages: Teak Main, Teak Pooja, Teak Architecture, Veneer, Premium Primer, Primer, WPC Doors and Frames, UV Coated Doors and Frames</li>
+                <li>Door detail template (one per model code)</li>
+              </ul>
+            </li>
+            <li><strong>Services</strong></li>
+            <li><strong>About</strong></li>
+            <li><strong>Contact</strong></li>
+            <li class="muted">Footer: Guides (the 3 articles, after a fact-check) · Privacy · Terms</li>
+            <li class="muted">Dropped: Projects or Gallery (no content). Blog moves out of the main nav.</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li>Main nav: Doors, Services, About, Contact, plus one button, “Get a Quote”, used everywhere.</li>
+            <li>Audience order: homeowners first (Meta ads on phones), then architects, interior designers and builders.</li>
+            <li>Homepage order (as requested, matching the current site's structure): video hero, marquee, counters, “Mastering the art of door craftsmanship” (the one dark section), featured collections (pinned), contact form and map, three guide cards, CTA band, footer. Nothing else.</li>
+            <li>Phase 2 adds the remaining pages, desktop and mobile, plus form success and 404 states.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="wipe" aria-hidden="true" data-wipe><span class="wipe__edge"></span></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@12.23.12/dist/motion.js"></script>
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

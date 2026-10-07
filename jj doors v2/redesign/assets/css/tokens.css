@@ -1,0 +1,110 @@
+/* ==========================================================================
+   JJ Doors design tokens
+   One source of truth for colour, type, space, grid, radius and motion.
+   Contrast ratios are WCAG 2.2 values against the background named.
+   ========================================================================== */
+
+:root {
+  /* ---------- Colour ---------- */
+  --brand: #00B04A;            /* fills, threshold line, accents on Ink. Never small text on light (2.67:1) */
+  --brand-deep: #007A35;       /* green text, links, focus and state on light: 5.09:1 on Base */
+  --brand-deep-hover: #005C28; /* link hover/pressed on light: 7.62:1 on Base */
+  --ink: #0E1310;              /* text: 17.45:1 on Base. Dark section background */
+  --ink-2: #161C18;            /* raised panel on Ink */
+  --base: #F6F7F4;             /* page */
+  --surface: #ECEEEA;          /* panels, image wells */
+  --line: #D9DDD6;             /* decorative hairlines only (1.28:1) */
+  --line-strong: #7D867F;      /* input and control borders: 3.49:1 on Base */
+  --muted: #5E6660;            /* secondary text: 5.51:1 on Base, 5.07:1 on Surface */
+  --muted-dk: #9AA49D;         /* secondary text on Ink: 7.30:1 */
+  --line-dk: #2A322D;          /* decorative hairlines on Ink */
+  --line-dk-strong: #5B655E;   /* control borders on Ink: 3.10:1 */
+  --danger: #B42318;           /* errors: 6.11:1 on Base */
+  --white: #FFFFFF;
+
+  /* ---------- Type ---------- */
+  --font-display: "General Sans", "Switzer", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Switzer", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Fluid scale, 390px to 1440px viewport */
+  --fs-display-xl: clamp(2.5rem, 0.829rem + 6.857vw, 7rem);      /* 40 to 112 */
+  --fs-display-l: clamp(2rem, 1.071rem + 3.81vw, 4.5rem);        /* 32 to 72 */
+  --fs-h2: clamp(1.875rem, 1.271rem + 2.476vw, 3.5rem);          /* 30 to 56 */
+  --fs-h3: clamp(1.375rem, 1.143rem + 0.952vw, 2rem);            /* 22 to 32 */
+  --fs-h4: clamp(1.125rem, 1.032rem + 0.381vw, 1.375rem);        /* 18 to 22 */
+  --fs-lede: clamp(1.125rem, 1.032rem + 0.381vw, 1.375rem);      /* 18 to 22 */
+  --fs-body: clamp(1rem, 0.954rem + 0.19vw, 1.125rem);           /* 16 to 18 */
+  --fs-small: 0.875rem;                                          /* 14 */
+  --fs-caption: 0.8125rem;                                       /* 13 */
+  --fs-figure: clamp(3rem, 1.329rem + 6.857vw, 7.5rem);          /* 48 to 120 */
+
+  --track-xl: -0.04em;
+  --track-l: -0.035em;
+  --track-h2: -0.03em;
+  --track-h3: -0.02em;
+  --track-h4: -0.01em;
+
+  --lh-xl: 0.95;
+  --lh-l: 1.02;
+  --lh-h2: 1.05;
+  --lh-h3: 1.15;
+  --lh-h4: 1.25;
+  --lh-lede: 1.5;
+  --lh-body: 1.6;
+
+  --measure: 65ch;
+
+  /* ---------- Space (8pt) ---------- */
+  --s-0: 4px;
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 32px;
+  --s-5: 40px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 80px;
+  --s-9: 96px;
+  --s-10: 120px;
+  --s-11: 160px;
+
+  --section: clamp(4.5rem, 2.457rem + 8.381vw, 10rem);          /* 72 to 160 */
+  --section-s: clamp(3.5rem, 2.014rem + 6.095vw, 7.5rem);       /* 56 to 120 */
+
+  /* ---------- Grid ---------- */
+  --cols: 4;
+  --margin: clamp(1.25rem, 0.043rem + 4.952vw, 4.5rem);          /* 20 to 72 */
+  --gutter: clamp(1rem, 0.814rem + 0.762vw, 1.5rem);             /* 16 to 24 */
+  --maxw: 1600px;
+
+  /* ---------- Radius ---------- */
+  --r-0: 0;      /* images, panels, cards */
+  --r-1: 2px;    /* every button, input, chip and focus ring */
+
+  /* ---------- Chrome ---------- */
+  --nav-h: 64px;
+  --bar-h: 64px;
+  --threshold: 2px;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-ui-fast: 200ms;
+  --dur-ui: 240ms;
+  --dur-ui-slow: 300ms;
+  --dur-reveal-short: 700ms;
+  --dur-reveal: 900ms;
+  --dur-reveal-long: 1100ms;
+  --stagger: 70ms;
+  --dur-wipe: 350ms;
+}
+
+@media (min-width: 768px) {
+  :root { --cols: 8; }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --cols: 12;
+    --nav-h: 80px;
+  }
+}

@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JJ Doors Design System</title>
+  <meta name="description" content="Phase 1 design system for the JJ Doors website: tokens, contrast, type, grid, components, image rules and motion.">
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try { if (sessionStorage.getItem("jj-wipe") === "1") { d.classList.add("wipe-in"); sessionStorage.removeItem("jj-wipe"); } } catch (e) {}
+      setTimeout(function () { d.classList.remove("wipe-in"); }, 3000);
+    })();
+  </script>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- One request per family: Fontshare drops the second family in combined requests -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,400i,500,600&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Geist:wght@400..600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M21 16.4v3.1a1.9 1.9 0 0 1-2.1 1.9 18.8 18.8 0 0 1-8.2-2.9 18.5 18.5 0 0 1-5.7-5.7A18.8 18.8 0 0 1 2.1 4.6 1.9 1.9 0 0 1 4 2.5h3.1A1.9 1.9 0 0 1 9 4.1c.1.9.3 1.8.7 2.7a1.9 1.9 0 0 1-.4 2L8 10.1a15.2 15.2 0 0 0 5.9 5.9l1.3-1.3a1.9 1.9 0 0 1 2-.4c.9.3 1.8.6 2.7.7a1.9 1.9 0 0 1 1.1 1.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41Z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5v6M12 16.2v.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7.5h4l1.8-2.5h6.4L17 7.5h4V19H3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="doc-bar">
+    <div class="wrap doc-bar__inner">
+      <a class="doc-bar__logo" href="index.html" aria-label="Review hub"><img src="assets/img/brand/jj-doors-logo-480.png" width="480" height="192" alt="JJ Doors and Plywood"></a>
+      <p class="doc-bar__title">Website redesign, Phase 1</p>
+      <nav aria-label="Review pages">
+        <a href="index.html">Overview</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="design-system.html" aria-current="page">Design system</a>
+        <a href="heroes.html">Heroes</a>
+        <a href="home.html">Homepage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc" data-page>
+    <div class="doc-head">
+      <h1 class="t-display-l">Design system</h1>
+      <p class="t-lede">Light, architectural and material-led. The UI recedes so the doors can do the talking. Version 0.1 for Phase 1 review.</p>
+      <nav class="doc-toc" aria-label="On this page">
+        <a href="#colour">Colour</a><a href="#type">Type</a><a href="#grid">Grid</a><a href="#space">Spacing</a><a href="#radius">Radius</a><a href="#devices">Signature devices</a><a href="#buttons">Buttons</a><a href="#forms">Forms</a><a href="#cards">Cards</a><a href="#nav">Nav and footer</a><a href="#images">Image rules</a><a href="#motion">Motion</a>
+      </nav>
+    </div>
+
+    <!-- ===================== Colour ===================== -->
+    <section class="doc-section" id="colour" aria-labelledby="h-colour">
+      <h2 class="t-h2" id="h-colour">Colour</h2>
+      <p class="intro">Warmth comes from the wood in the photography, not from the UI. Green stays under about 10% of any screen. No gradients, glows, glass, pure black or beige-and-brass.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch__chip" style="background:#00B04A;color:#0E1310">Aa</div><p class="swatch__name">Brand</p><p class="swatch__hex">#00B04A · <code>--brand</code></p><p class="swatch__role">CTA fills, threshold line, accents on Ink. Never small text on light.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#007A35;color:#fff">Aa</div><p class="swatch__name">Brand deep</p><p class="swatch__hex">#007A35 · <code>--brand-deep</code></p><p class="swatch__role">Green text and links, focus rings, state indicators on light.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#0E1310;color:#F6F7F4">Aa</div><p class="swatch__name">Ink</p><p class="swatch__hex">#0E1310 · <code>--ink</code></p><p class="swatch__role">All text. Background of the one dark section.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#F6F7F4;color:#0E1310">Aa</div><p class="swatch__name">Base</p><p class="swatch__hex">#F6F7F4 · <code>--base</code></p><p class="swatch__role">Page background.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#ECEEEA;color:#0E1310">Aa</div><p class="swatch__name">Surface</p><p class="swatch__hex">#ECEEEA · <code>--surface</code></p><p class="swatch__role">Panels, image wells, enquiry band.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#D9DDD6;color:#0E1310">Aa</div><p class="swatch__name">Line</p><p class="swatch__hex">#D9DDD6 · <code>--line</code></p><p class="swatch__role">Decorative hairlines only.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#5E6660;color:#fff">Aa</div><p class="swatch__name">Muted</p><p class="swatch__hex">#5E6660 · <code>--muted</code></p><p class="swatch__role">Secondary text on light.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#7D867F;color:#fff">Aa</div><p class="swatch__name">Line strong</p><p class="swatch__hex">#7D867F · <code>--line-strong</code></p><p class="swatch__role">Added. Input and control borders (3:1 needed).</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#9AA49D;color:#0E1310">Aa</div><p class="swatch__name">Muted on dark</p><p class="swatch__hex">#9AA49D · <code>--muted-dk</code></p><p class="swatch__role">Added. Secondary text on Ink.</p></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#B42318;color:#fff">Aa</div><p class="swatch__name">Danger</p><p class="swatch__hex">#B42318 · <code>--danger</code></p><p class="swatch__role">Added. Form errors only, always with an icon and text.</p></div>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Contrast, WCAG 2.2</h3>
+        <p class="t-muted">AA needs 4.5:1 for normal text, 3:1 for large text (24px, or 18.66px bold) and 3:1 for UI parts such as borders, focus rings and state indicators. Every state below, including hover and pressed, is covered.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Foreground on background</th><th scope="col">Ratio</th><th scope="col">Used for</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>Ink on Base</td><td>17.45:1</td><td>Body and headings</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Ink on Surface</td><td>16.07:1</td><td>Text on panels</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Ink on White</td><td>18.76:1</td><td>Input text</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Muted on Base / Surface / White</td><td>5.51 / 5.07 / 5.92:1</td><td>Secondary text</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AA</span></td></tr>
+              <tr><td>Brand deep on Base / Surface / White</td><td>5.09 / 4.69 / 5.48:1</td><td>Links, green text, focus ring, active indicators</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AA</span></td></tr>
+              <tr><td>Link hover #005C28 on Base</td><td>7.62:1</td><td>Link hover and pressed</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Ink on Brand</td><td>6.53:1</td><td>Primary button label</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AA</span></td></tr>
+              <tr><td>Base on Ink</td><td>17.45:1</td><td>Primary and secondary hover fill on light; text in the dark section</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Brand on Ink</td><td>6.53:1</td><td>Links, accents and focus ring on dark</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AA</span></td></tr>
+              <tr><td>Muted on dark on Ink</td><td>7.30:1</td><td>Secondary text on dark</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AAA</span></td></tr>
+              <tr><td>Line strong on Base / White</td><td>3.49 / 3.76:1</td><td>Input and control borders</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>UI 3:1</span></td></tr>
+              <tr><td>#5B655E on Ink</td><td>3.10:1</td><td>Control borders on dark</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>UI 3:1</span></td></tr>
+              <tr><td>Danger on Base / White</td><td>6.11 / 6.57:1</td><td>Error text and borders</td><td><span class="pill pill--pass"><svg aria-hidden="true"><use href="#i-check"/></svg>AA</span></td></tr>
+              <tr><td>White on Brand</td><td>2.87:1</td><td>Never</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>Fails</span></td></tr>
+              <tr><td>Brand on Base / Surface</td><td>2.67 / 2.46:1</td><td>Decorative threshold line only. Never text, focus or state</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>Fails for text</span></td></tr>
+              <tr><td>Brand deep on Ink</td><td>3.43:1</td><td>Never as text on dark; use Brand instead</td><td><span class="pill pill--fail"><svg aria-hidden="true"><use href="#i-x"/></svg>Fails</span></td></tr>
+              <tr><td>Line on Base</td><td>1.28:1</td><td>Decorative hairlines only, never a control border</td><td><span class="pill pill--note">Decorative</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Type ===================== -->
+    <section class="doc-section" id="type" aria-labelledby="h-type">
+      <h2 class="t-h2" id="h-type">Typography</h2>
+      <p class="intro">A precise grotesk for display, set large and tight, against a quiet text face set small and calm. Satoshi and Clash Display are ruled out because the reference site uses them. Inter is not used.</p>
+      <div class="pairings">
+        <article class="pairing is-pick">
+          <span class="pairing__flag">Recommended</span>
+          <p class="pairing__meta">A. General Sans 500 + Switzer 400</p>
+          <p class="pairing__display ff-gs">Every home begins at the door.</p>
+          <p class="pairing__text ff-sw">Carved teak entrance and pooja doors, with veneer, primer and WPC doors for every room. <em>Made to your opening.</em></p>
+          <p class="pairing__meta">Both from the Indian Type Foundry (Fontshare, free for commercial use). General Sans is crisp and confident at size without feeling technical; Switzer is a neutral, very legible text grotesk with a true italic. Self-host both in the build.</p>
+        </article>
+        <article class="pairing">
+          <p class="pairing__meta">B. Archivo Expanded 600 + Archivo 400</p>
+          <p class="pairing__display ff-ar-wide" style="font-size:2.25rem">Every home begins at the door.</p>
+          <p class="pairing__text ff-ar">Carved teak entrance and pooja doors, with veneer, primer and WPC doors for every room. <em>Made to your opening.</em></p>
+          <p class="pairing__meta">One variable superfamily, hierarchy through width. Very architectural, like lettering on a drawing, but the wide display costs line length and reads louder next to carved teak.</p>
+        </article>
+        <article class="pairing">
+          <p class="pairing__meta">C. Geist 500 + Geist 400</p>
+          <p class="pairing__display ff-ge">Every home begins at the door.</p>
+          <p class="pairing__text ff-ge">Carved teak entrance and pooja doors, with veneer, primer and WPC doors for every room. Made to your opening.</p>
+          <p class="pairing__meta">Single family, extremely precise. Strongly associated with software products, and it has no true italic, so emphasis is weight only.</p>
+        </article>
+      </div>
+
+      <div class="doc-sub">
+        <h3 class="t-h3">Scale (fluid, 390px to 1440px)</h3>
+        <div class="scale">
+          <div class="scale__row"><p class="scale__meta"><strong>Display XL</strong>40 to 112px · 0.95 · −4% · 500</p><p class="scale__sample t-display-xl">Doors</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>Display L</strong>32 to 72px · 1.02 · −3.5% · 500</p><p class="scale__sample t-display-l">Pooja doors, carved in teak.</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>H2</strong>30 to 56px · 1.05 · −3% · 500</p><p class="scale__sample t-h2">Eight collections. 375 designs.</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>H3</strong>22 to 32px · 1.15 · −2% · 500</p><p class="scale__sample t-h3">Made to your opening.</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>H4</strong>18 to 22px · 1.25 · −1% · 600</p><p class="scale__sample t-h4">Teak Main Doors</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>Lede</strong>18 to 22px · 1.5 · Switzer 400</p><p class="scale__sample t-lede">Tell us what you need. We will get back to you with options and a price.</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>Body</strong>16 to 18px · 1.6 · max 65ch</p><p class="scale__sample t-body t-measure">Main doors, pooja doors, room doors, bathroom doors and frames. A whole home or a whole project can come from one place. Emphasis uses <strong>weight</strong> or <em>the italic</em> of the same family.</p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>Small / Caption</strong>14px · 1.5 / 13px · 1.45</p><p class="scale__sample"><span class="t-small">134 designs</span> · <span class="t-caption t-muted">JJ 1034 Teak Architecture Door</span></p></div>
+          <div class="scale__row"><p class="scale__meta"><strong>Figure</strong>48 to 120px · 0.9 · −4.5% · tabular</p><p class="scale__sample t-figure">500<span style="color:var(--brand-deep)">+</span></p></div>
+        </div>
+        <ul class="bullets" style="margin-top:var(--s-4)">
+          <li>No small uppercase labels above sections, no 01/02 numbering, no em dashes in copy.</li>
+          <li>Headlines short, sentence case, ending with a full stop. Tracking only ever tightens on display sizes.</li>
+          <li>Model codes (JJ 1034, V 1536, JJ WPC24) keep their catalogue spelling exactly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Grid ===================== -->
+    <section class="doc-section" id="grid" aria-labelledby="h-grid">
+      <h2 class="t-h2" id="h-grid">Grid</h2>
+      <p class="intro">A strict column grid. 12 columns from 1024px, 8 from 768px, 4 below. Margins 20px to 72px, gutters 16px to 24px, content capped at 1456px inside a 1600px frame. Add <code>?grid=1</code> to the homepage URL to overlay it.</p>
+      <div class="grid-demo" aria-hidden="true"><div class="wrap grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <p class="grid-demo__label">This page's grid at the current width. At 1440px: 72px margins, 24px gutters, 86px columns.</p>
+      <div class="cols cols--3" style="margin-top:var(--s-5)">
+        <div><p class="t-small"><strong>Desktop 12</strong></p><div class="grid-mini" style="grid-template-columns:repeat(12,1fr)" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div><p class="t-small"><strong>Tablet 8</strong></p><div class="grid-mini" style="grid-template-columns:repeat(8,1fr)" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div><p class="t-small"><strong>Mobile 4</strong></p><div class="grid-mini" style="grid-template-columns:repeat(4,1fr)" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
+      </div>
+    </section>
+
+    <!-- ===================== Spacing ===================== -->
+    <section class="doc-section" id="space" aria-labelledby="h-space">
+      <h2 class="t-h2" id="h-space">Spacing</h2>
+      <p class="intro">8pt system with a 4px half step. Sections breathe at 72px on phones and 160px on desktop. Pacing alternates dense and airy sections.</p>
+      <div class="space-scale">
+        <div class="space-scale__row"><span>4 · s-0</span><span class="space-scale__bar" style="width:4px"></span></div>
+        <div class="space-scale__row"><span>8 · s-1</span><span class="space-scale__bar" style="width:8px"></span></div>
+        <div class="space-scale__row"><span>16 · s-2</span><span class="space-scale__bar" style="width:16px"></span></div>
+        <div class="space-scale__row"><span>24 · s-3</span><span class="space-scale__bar" style="width:24px"></span></div>
+        <div class="space-scale__row"><span>32 · s-4</span><span class="space-scale__bar" style="width:32px"></span></div>
+        <div class="space-scale__row"><span>48 · s-6</span><span class="space-scale__bar" style="width:48px"></span></div>
+        <div class="space-scale__row"><span>64 · s-7</span><span class="space-scale__bar" style="width:64px"></span></div>
+        <div class="space-scale__row"><span>96 · s-9</span><span class="space-scale__bar" style="width:96px"></span></div>
+        <div class="space-scale__row"><span>120 · s-10</span><span class="space-scale__bar" style="width:120px"></span></div>
+        <div class="space-scale__row"><span>160 · s-11</span><span class="space-scale__bar" style="width:160px"></span></div>
+      </div>
+      <p class="t-small t-muted" style="margin-top:var(--s-3)">Section padding <code>--section</code>: clamp(72px to 160px). Compact sections <code>--section-s</code>: 56px to 120px.</p>
+    </section>
+
+    <!-- ===================== Radius ===================== -->
+    <section class="doc-section" id="radius" aria-labelledby="h-radius">
+      <h2 class="t-h2" id="h-radius">Corner radius</h2>
+      <p class="intro">Two values only. Square corners keep the architecture crisp; every button, input, chip and focus ring shares the same 2px shape.</p>
+      <div class="stage stage-row">
+        <div class="stage-item"><div class="frame frame--leaf" style="width:72px"><img src="assets/img/doors/jj-1020.webp" width="526" height="1051" alt="" loading="lazy"></div><span>0 · images, panels, cards</span></div>
+        <div class="stage-item"><a class="btn btn--primary btn--sm" href="#radius"><span>Get a Quote</span></a><span>2px · buttons</span></div>
+        <div class="stage-item"><input class="field__input" style="width:200px" aria-label="Example input" placeholder="2px · inputs"><span>2px · inputs and focus</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== Signature devices ===================== -->
+    <section class="doc-section" id="devices" aria-labelledby="h-devices">
+      <h2 class="t-h2" id="h-devices">Signature devices</h2>
+      <p class="intro">Three ideas that make the site JJ's own and appear nowhere on the reference.</p>
+      <div class="cols cols--3">
+        <div>
+          <h3 class="t-h4">The door leaf</h3>
+          <p class="t-small t-muted" style="margin-block:8px 16px">Doors sit in tall 3:7 masks, the proportion of a real door leaf. Pairs use 6:7. Everything else (interiors, details) uses other ratios so the leaf stays special.</p>
+          <div style="display:flex;gap:12px;align-items:flex-end">
+            <div class="frame frame--leaf" style="width:90px"><img src="assets/img/doors/jj-449.webp" width="526" height="1051" alt="" loading="lazy"></div>
+            <div class="frame frame--pair" style="width:180px"><img src="assets/img/doors/jj-2034.webp" width="526" height="1051" alt="" loading="lazy"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="t-h4">The threshold line</h3>
+          <p class="t-small t-muted" style="margin-block:8px 16px">A 2px line of light under the door. Doors stand on it. It draws in as a divider and fills as progress. Decorative uses take #00B04A; when it shows state on a light background it switches to Brand deep so it reaches 3:1.</p>
+          <span class="threshold" style="margin-bottom:12px" aria-hidden="true"></span>
+          <p class="t-caption t-muted" style="margin-bottom:8px">Decorative</p>
+          <div class="threshold--track" style="width:70%" aria-hidden="true"><span class="threshold threshold--state" style="transform:scaleX(0.6)"></span></div>
+          <p class="t-caption t-muted" style="margin-top:8px">Progress (state)</p>
+        </div>
+        <div>
+          <h3 class="t-h4">The opening</h3>
+          <p class="t-small t-muted" style="margin-block:8px 16px">Once, in the hero: a panel slides off the film like a sliding door, its leading edge lit green, and the film starts as it settles into place. Replay the motion below.</p>
+          <div class="reveal-demo">
+            <figure class="frame frame--leaf" id="openDemo" style="width:110px;margin:0">
+              <img src="assets/img/doors/jj-1034.webp" width="806" height="1187" alt="" loading="lazy" data-open-img>
+              <span class="hero__panel" data-open-panel style="position:absolute;inset:0;background:var(--surface);transform:translateX(101%)"><span class="hero__panel-edge" style="position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--brand)"></span></span>
+            </figure>
+            <button class="btn btn--secondary btn--sm" type="button" data-open-replay><span>Replay</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Buttons ===================== -->
+    <section class="doc-section" id="buttons" aria-labelledby="h-buttons">
+      <h2 class="t-h2" id="h-buttons">Buttons</h2>
+      <p class="intro">One shape, two weights and a text link. One quote label everywhere: “Get a Quote”. Hover sweeps an Ink fill across and nudges the arrow; press scales to 0.98. The live row responds; the rows below freeze each state.</p>
+      <div class="stage">
+        <p class="t-caption t-muted" style="margin-bottom:12px">Live, on light</p>
+        <div class="stage-row">
+          <a class="btn btn--primary" href="#buttons"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--secondary" href="#buttons"><span>Explore doors</span></a>
+          <a class="btn btn--secondary" href="#buttons"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+          <a class="link" href="#buttons">Explore pooja doors <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="stage" style="margin-top:var(--gutter)">
+        <div class="stage-row">
+          <div class="stage-item"><a class="btn btn--primary" href="#buttons" tabindex="-1"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Primary · default (6.53:1)</span></div>
+          <div class="stage-item"><a class="btn btn--primary is-hover" href="#buttons" tabindex="-1"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Hover (17.45:1)</span></div>
+          <div class="stage-item"><a class="btn btn--primary is-focus" href="#buttons" tabindex="-1"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Focus ring, Brand deep</span></div>
+          <div class="stage-item"><a class="btn btn--primary is-pressed" href="#buttons" tabindex="-1"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Pressed · 0.98</span></div>
+          <div class="stage-item"><button class="btn btn--primary" type="button" disabled><span>Get a Quote</span></button><span>Disabled</span></div>
+        </div>
+        <div class="stage-row" style="margin-top:var(--s-4)">
+          <div class="stage-item"><a class="btn btn--secondary" href="#buttons" tabindex="-1"><span>Explore doors</span></a><span>Secondary · default</span></div>
+          <div class="stage-item"><a class="btn btn--secondary is-hover" href="#buttons" tabindex="-1"><span>Explore doors</span></a><span>Hover</span></div>
+          <div class="stage-item"><a class="btn btn--secondary is-focus" href="#buttons" tabindex="-1"><span>Explore doors</span></a><span>Focus</span></div>
+          <div class="stage-item"><a class="btn btn--secondary btn--sm" href="#buttons" tabindex="-1"><span>Small · 44px</span></a><span>Small size</span></div>
+        </div>
+      </div>
+      <div class="stage stage--dark on-dark" style="margin-top:var(--gutter)">
+        <p class="t-caption t-muted" style="margin-bottom:12px">On Ink (dark section only)</p>
+        <div class="stage-row">
+          <div class="stage-item"><a class="btn btn--primary" href="#buttons"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Live</span></div>
+          <div class="stage-item"><a class="btn btn--primary is-hover" href="#buttons" tabindex="-1"><span>Get a Quote</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Hover · Base fill</span></div>
+          <div class="stage-item"><a class="btn btn--secondary is-focus" href="#buttons" tabindex="-1"><span>Explore</span></a><span>Focus ring, Brand</span></div>
+          <div class="stage-item"><a class="link" href="#buttons">Explore pooja doors <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span>Link · Brand on Ink</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Forms ===================== -->
+    <section class="doc-section" id="forms" aria-labelledby="h-forms">
+      <h2 class="t-h2" id="h-forms">Forms</h2>
+      <p class="intro">Labels sit above fields. 52px fields with 16px text, so iOS never zooms. Focus draws a threshold line under the field; errors add a red border, an icon and a sentence that says how to fix it.</p>
+      <div class="stage">
+        <div class="cols cols--4">
+          <div class="field"><label class="field__label" for="ds-a">Default</label><div class="field__control"><input class="field__input" id="ds-a" type="text"><span class="field__line" aria-hidden="true"></span></div></div>
+          <div class="field"><label class="field__label" for="ds-b">Focus</label><div class="field__control"><input class="field__input is-focus" id="ds-b" type="text" value="Ravi Kumar"><span class="field__line is-on" aria-hidden="true"></span></div></div>
+          <div class="field is-invalid"><label class="field__label" for="ds-c">Error</label><div class="field__control field__control--prefix"><span class="field__prefix" aria-hidden="true">+91</span><input class="field__input" id="ds-c" type="tel" value="98765" aria-invalid="true" aria-describedby="ds-c-e"><span class="field__line" aria-hidden="true"></span></div><p class="field__error" id="ds-c-e"><svg aria-hidden="true"><use href="#i-alert"/></svg><span>Enter a 10-digit mobile number.</span></p></div>
+          <div class="field"><label class="field__label" for="ds-d">Disabled</label><div class="field__control"><input class="field__input" id="ds-d" type="text" value="Bangalore" disabled></div></div>
+        </div>
+        <div class="cols cols--2" style="margin-top:var(--s-4)">
+          <div class="field"><label class="field__label" for="ds-e">Product interest</label><div class="field__control"><select class="field__input" id="ds-e"><option>Teak Pooja Doors</option><option>WPC Doors and Frames</option></select><svg class="field__select-icon" aria-hidden="true"><use href="#i-chevron"/></svg><span class="field__line" aria-hidden="true"></span></div></div>
+          <div class="field"><label class="field__label" for="ds-f">Message <span class="opt">(optional)</span></label><div class="field__control"><textarea class="field__input" id="ds-f" rows="2" placeholder="Sizes, quantity, design codes"></textarea><span class="field__line" aria-hidden="true"></span></div></div>
+        </div>
+        <p class="t-caption t-muted" style="margin-top:var(--s-3)">Try the live fields: click into any of them to see the focus line. The full enquiry form with validation and the success state is in the homepage prototype.</p>
+      </div>
+      <div class="doc-sub">
+        <h3 class="t-h4">Specs accordion (product detail, Phase 2)</h3>
+        <div data-accordion style="max-width:640px;margin-top:12px;border-top:1px solid var(--ink)">
+          <div style="border-bottom:1px solid var(--line)">
+            <h4 style="margin:0"><button type="button" class="acc-btn" data-acc-trigger aria-expanded="false" aria-controls="acc-1" style="width:100%;display:flex;justify-content:space-between;align-items:center;min-height:56px;font-weight:600">Material and core <svg aria-hidden="true" style="width:20px;height:20px"><use href="#i-plus"/></svg></button></h4>
+            <div id="acc-1" hidden><p class="t-small t-muted" style="padding-bottom:16px">Teak <span class="ph-text">[PLACEHOLDER: solid or teak-faced, timber grade, core]</span></p></div>
+          </div>
+          <div style="border-bottom:1px solid var(--line)">
+            <h4 style="margin:0"><button type="button" class="acc-btn" data-acc-trigger aria-expanded="false" aria-controls="acc-2" style="width:100%;display:flex;justify-content:space-between;align-items:center;min-height:56px;font-weight:600">Sizes and thickness <svg aria-hidden="true" style="width:20px;height:20px"><use href="#i-plus"/></svg></button></h4>
+            <div id="acc-2" hidden><p class="t-small t-muted" style="padding-bottom:16px"><span class="ph-text">[PLACEHOLDER: standard sizes in mm, leaf thickness, custom size limits]</span></p></div>
+          </div>
+          <div style="border-bottom:1px solid var(--line)">
+            <h4 style="margin:0"><button type="button" class="acc-btn" data-acc-trigger aria-expanded="false" aria-controls="acc-3" style="width:100%;display:flex;justify-content:space-between;align-items:center;min-height:56px;font-weight:600">Finishes <svg aria-hidden="true" style="width:20px;height:20px"><use href="#i-plus"/></svg></button></h4>
+            <div id="acc-3" hidden><p class="t-small t-muted" style="padding-bottom:16px"><span class="ph-text">[PLACEHOLDER: polish options and colour names, with swatch photos]</span></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Cards ===================== -->
+    <section class="doc-section" id="cards" aria-labelledby="h-cards">
+      <h2 class="t-h2" id="h-cards">Cards</h2>
+      <p class="intro">Consistent leaf ratio and well colour across every card. Collection tiles reveal a one-line descriptor and “Explore” on hover (always visible on touch). Product cards preview the Phase 2 overview.</p>
+      <div class="stage stage-row" style="align-items:flex-start">
+        <div class="tile" style="width:220px">
+          <a class="tile__link" href="#cards">
+            <figure class="frame frame--leaf tile__frame"><img class="tile__img" src="assets/img/doors/v-1536.webp" width="526" height="1051" loading="lazy" alt="V 1536 veneer door with a cube parquet pattern"></figure>
+            <span class="tile__meta" style="display:grid;gap:2px"><span class="tile__name t-h4">Veneer Doors</span><span class="t-small t-muted" style="order:-1">52 designs</span></span>
+            <span class="tile__more" style="display:grid;gap:6px"><span class="t-small t-muted">Natural teak veneer and patterned veneer faces.</span><span class="link t-small">Explore <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          </a>
+          <p class="t-caption t-muted" style="margin-top:8px">Collection tile · hover it</p>
+        </div>
+        <article style="width:220px;display:grid;gap:12px">
+          <div class="frame frame--leaf"><img src="assets/img/doors/jj-2034.webp" width="526" height="1051" loading="lazy" alt="JJ 2034 teak pooja door pair with jaali panels"></div>
+          <div style="display:grid;gap:4px">
+            <h3 class="t-h4">JJ 2034</h3>
+            <p class="t-small t-muted">Teak Pooja Door · <span class="ph-text">[thickness]</span></p>
+          </div>
+          <div style="display:flex;gap:6px" aria-label="Finishes"><span class="ph-text">[PLACEHOLDER: finish swatches]</span></div>
+          <a class="btn btn--secondary btn--sm" href="#cards"><span>Enquire</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="t-caption t-muted">Product card · Phase 2</p>
+        </article>
+        <figure class="ph frame frame--leaf" style="width:220px;margin:0">
+          <div class="ph__inner"><svg class="ph__icon" aria-hidden="true"><use href="#i-camera"/></svg><p class="ph__title">Photo needed</p><p class="ph__desc">Placeholder style for any missing shot. Always names the exact shot and ratio.</p><p class="ph__meta">3:7 door leaf</p></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== Nav and footer ===================== -->
+    <section class="doc-section" id="nav" aria-labelledby="h-nav">
+      <h2 class="t-h2" id="h-nav">Navigation and footer</h2>
+      <div class="cols cols--2">
+        <div>
+          <h3 class="t-h4">Navigation</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Logo, four links (Doors, Services, About, Contact) and one “Get a Quote” button. 80px tall on desktop, 64px on phones.</li>
+            <li>Transparent over the hero; a Base layer with a hairline fades in after 8px of scroll.</li>
+            <li>Hides on scroll down after 160px, returns on scroll up and whenever it receives keyboard focus.</li>
+            <li>A single 2px Brand deep indicator glides between links on hover and rests under the section in view.</li>
+            <li>Phones: a full-screen menu with large staggered links, then Get a Quote, WhatsApp and Call. Escape closes it and focus returns to the menu button.</li>
+            <li>Phones also get a sticky bottom bar: Call, WhatsApp, Get a Quote. It steps aside while the enquiry form is on screen.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-h4">Footer</h3>
+          <ul class="bullets" style="margin-top:12px">
+            <li>Large logo lockup, exactly as supplied.</li>
+            <li>Doors: the 8 collections. Company: About, Services, Contact, Guides.</li>
+            <li>Visit: Jalaram Associates, Bangalore, the full street address once confirmed, and a Google Maps link.</li>
+            <li>Talk to us: phone, WhatsApp, email, and Instagram, Facebook and WhatsApp Channel icons.</li>
+            <li>Bottom row: copyright and manufacturer line, Privacy, Terms.</li>
+          </ul>
+          <p class="t-small" style="margin-top:16px"><a class="link" href="home.html">See both live in the homepage prototype <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Image rules ===================== -->
+    <section class="doc-section" id="images" aria-labelledby="h-images">
+      <h2 class="t-h2" id="h-images">Image rules</h2>
+      <p class="intro">Only the client's real photographs and the supplied logo. Nothing from the reference site, and none of the AI-generated images on the current site.</p>
+      <div class="stage stage-row" style="align-items:flex-end">
+        <div class="stage-item"><div class="frame frame--leaf" style="width:96px"><img src="assets/img/doors/jj-wpc41.webp" width="449" height="1050" alt="" loading="lazy"></div><span>3:7 door leaf</span></div>
+        <div class="stage-item"><div class="frame frame--4x5" style="width:180px"><img src="assets/img/doors/detail-carving.webp" width="490" height="613" alt="" loading="lazy"></div><span>4:5 detail</span></div>
+        <div class="stage-item"><div class="frame frame--3x2 frame--top" style="width:240px"><img src="assets/img/doors/jj-2043.webp" width="526" height="1050" alt="" loading="lazy"></div><span>3:2 interior or crop</span></div>
+        <div class="stage-item"><div class="ph frame frame--16x9" style="width:240px"><div class="ph__inner"><p class="ph__meta">16:9 interior</p></div></div><span>16:9 interior</span></div>
+        <div class="stage-item"><div class="ph frame frame--21x9" style="width:300px"><div class="ph__inner"><p class="ph__meta">21:9 editorial</p></div></div><span>21:9 wide editorial</span></div>
+      </div>
+      <ul class="bullets" style="margin-top:var(--s-4)">
+        <li>Doors: straight on, full leaf, consistent Surface well behind. Catalogue images at 1:2 lose about 7% each side inside a 3:7 mask; product detail shows the uncropped image.</li>
+        <li>One grade: neutral, very slightly warm (shoot at about 5000K, no filters). Never shift the timber colour; customers choose by it.</li>
+        <li>Supplied catalogue images are 375 to 806px wide, enough for tiles but soft on large retina screens. The shot list asks for originals at 2400px tall or more.</li>
+        <li>The hero film loads only after the page, at the right size (720px on phones, 1080px on desktop), behind a 29KB poster that paints first. Everything else lazy-loads, and every image carries width and height so nothing shifts.</li>
+        <li>Missing shots use a labelled placeholder that names the exact shot, angle, light and ratio.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== Motion ===================== -->
+    <section class="doc-section" id="motion" aria-labelledby="h-motion">
+      <h2 class="t-h2" id="h-motion">Motion</h2>
+      <p class="intro">Every animation explains hierarchy, sequence or feedback. Only transform and opacity animate. One easing family. Image “wipes” are built from two counter-moving layers, so even they are transform-only.</p>
+      <div class="cols cols--2">
+        <div>
+          <svg class="curve" viewBox="0 0 240 160" role="img" aria-label="Easing curve cubic-bezier 0.16, 1, 0.3, 1: fast start, long gentle settle">
+            <path d="M20 140 H220 M20 140 V20" stroke="#D9DDD6" fill="none"/>
+            <path d="M20 140 C52 20, 80 20, 220 20" stroke="#007A35" stroke-width="2" fill="none"/>
+            <text x="20" y="156" font-size="10" fill="#5E6660">time</text>
+          </svg>
+          <p class="t-small" style="margin-top:12px"><code>cubic-bezier(0.16, 1, 0.3, 1)</code>: GSAP <code>CustomEase "jj"</code>, Motion <code>[0.16, 1, 0.3, 1]</code>, CSS <code>--ease-out</code>.</p>
+        </div>
+        <div class="table-wrap" style="margin-top:0">
+          <table class="table" style="min-width:0">
+            <thead><tr><th scope="col">Token</th><th scope="col">Value</th></tr></thead>
+            <tbody>
+              <tr><td>UI (hover, focus, toggles)</td><td>200 / 240 / 300ms</td></tr>
+              <tr><td>Reveals</td><td>700 / 900 / 1100ms</td></tr>
+              <tr><td>Stagger</td><td>70ms (60 to 90)</td></tr>
+              <tr><td>First-visit threshold line</td><td>1.1s (0.7s on return), max 1.2s</td></tr>
+              <tr><td>Page wipe</td><td>350ms in + 350ms out</td></tr>
+              <tr><td>Parallax travel</td><td>about 10% of the frame</td></tr>
+              <tr><td>Counters</td><td>1.6s, once</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="doc-sub">
+        <h3 class="t-h4">Who owns what (never both)</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">GSAP + ScrollTrigger + SplitText</th><th scope="col">Motion (motion/react in the build)</th></tr></thead>
+            <tbody>
+              <tr><td>Hero intro: threshold line, sliding panel off the film, film settle, headline lines (and the cue that starts the film)</td><td>Nav show/hide and scrolled layer; active-link indicator</td></tr>
+              <tr><td>Marquee that moves only with scroll (no autoplay loop)</td><td>Full-screen menu and staggered links</td></tr>
+              <tr><td>Section headlines rising line by line</td><td>Buttons: fill sweep, arrow nudge, press 0.98</td></tr>
+              <tr><td>Fade-ups, threshold draws, counters</td><td>Film play and pause button</td></tr>
+              <tr><td>Scroll-linked change into and out of the dark craft section</td><td>Tile and guide card hover: image zoom 1.04, descriptor reveal, arrow nudge</td></tr>
+              <tr><td>Craft section visual swaps as points scroll past</td><td>Form focus line, validation, success</td></tr>
+              <tr><td>Pinned collections scroll and its progress line</td><td>Dialog, toast, accordions, mobile action bar</td></tr>
+              <tr><td>Gentle parallax on the hero film; page wipe; Lenis sync (desktop only)</td><td>Page content enter and exit under the wipe</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top:var(--s-4)">
+          <p><strong>Reduced motion.</strong> Opacity fades only. No Lenis, no pinning, no parallax, no sliding panel, and the marquee stays still. The film does not autoplay (nor on Data Saver): its first frame shows with a play button. The dark section is simply dark, counters show their final numbers, the nav stays put, and the craft section shows each image inline.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="wipe" aria-hidden="true" data-wipe><span class="wipe__edge"></span></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@12.23.12/dist/motion.js"></script>
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    /* The opening, replayable (GSAP owns it, as on the homepage) */
+    (function () {
+      var btn = document.querySelector("[data-open-replay]");
+      var panel = document.querySelector("[data-open-panel]");
+      var img = document.querySelector("[data-open-img]");
+      if (!btn || !window.gsap) return;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function play() {
+        if (reduce) { gsap.fromTo(img, { opacity: 0 }, { opacity: 1, duration: 0.4 }); return; }
+        gsap.timeline()
+          .set(panel, { x: 0, xPercent: 0 })
+          .to(panel, { xPercent: 101, duration: 1.0, ease: "jj" }, 0.15)
+          .fromTo(img, { scale: 1.1 }, { scale: 1, duration: 1.4, ease: "jj" }, 0.15);
+      }
+      btn.addEventListener("click", play);
+      play();
+    })();
+  </script>
+</body>
+</html>

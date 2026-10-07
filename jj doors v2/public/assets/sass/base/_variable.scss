@@ -1,0 +1,136 @@
+:root {
+  --theme-color         : #00B04A;
+  --secondary-color     : #FFFFE6;
+  --title-color         : #101315;
+  --body-color          : #101315;
+  --smoke-color         : #FFFFE6;
+  --smoke-color2        : #FAF8DF;
+  --smoke-color3        : #F5F3DB;
+  --smoke-color4        : #EFECCC;
+  --smoke-color5        : #FFFFE6;
+  --black-color         : #101315;
+  --gray-color          : #101315;
+  --white-color         : #ffffff;
+  --light-color         : #889096;
+  --yellow-color        : #FFB539;
+  --success-color       : #00B04A;
+  --error-color         : #dc3545;
+  --border-color        : #E3E3E3;
+  --title-font          : 'Unbounded', sans-serif;
+  --body-font           : 'Poppins', sans-serif;
+  --icon-font           : "Font Awesome 5 Free";
+  --main-container      : 1296px;
+  --container-gutters   : 24px;
+  --section-space       : 140px;
+  --section-space-mobile: 80px;
+  --section-title-space : 65px;
+  --ripple-ani-duration : 5s;
+}
+// Color Variation
+$theme-color          : var(--theme-color);
+$secondary-color      : var(--secondary-color);
+$title-color          : var(--title-color);
+$body-color           : var(--body-color);
+$smoke-color          : var(--smoke-color);
+$smoke-color2         : var(--smoke-color2);
+$smoke-color3         : var(--smoke-color3);
+$smoke-color4         : var(--smoke-color4);
+$smoke-color5         : var(--smoke-color5);
+$white-color          : var(--white-color);
+$light-color          : var(--light-color);
+$black-color          : var(--black-color);
+$gray-color           : var(--gray-color);
+$yellow-color         : var(--yellow-color);
+$success-color        : var(--success-color);
+$error-color          : var(--error-color);
+$border-color         : var(--border-color);
+
+// Font Variation
+$icon-font   : var(--icon-font);
+
+// Typography
+$title-font      : var(--title-font);
+$body-font       : var(--body-font);
+$body-font-size  : 16px;
+$body-line-Height: 26px;
+$body-font-weight: 400;
+$p-line-Height   : 1.75;
+
+// Device Variation
+$hd: 1921px; // Large Device Than 1920
+$xxl: 1500px; // Extra large Device
+$ml: 1399px; // Medium Large Device
+$xl: 1299px; // Medium Large Device
+$lg: 1199px; // Large Device (Laptop)
+$md: 991px; // Medium Device (Tablet)
+$sm: 767px; // Small Device
+$xs: 575px; // Extra Small Device
+$vxs: 375px; // Extra Small Device
+
+// Spacing Count with 5x
+$space-count: 10;
+
+// Section Space  For large Device
+$space         : var(--section-space);
+$space-extra   : calc(var(--section-space) - 30px);
+$space-extra2   : calc(var(--section-space) - 40px);
+
+// Section Space On small Device
+$space-mobile         : var(--section-space-mobile);
+$space-mobile-extra: calc(var(--section-space-mobile) - 30px);
+
+
+// BG Color Mapping 
+$bgcolorMap  : ();
+$bgcolorMap  : map-merge((
+  "theme"    : $theme-color,
+  "theme2"   : $theme-color,
+  "secondary": $secondary-color,
+  "smoke"    : $smoke-color,
+  "smoke2"   : $smoke-color2,
+  "smoke3"   : $smoke-color3,
+  "smoke4"   : $smoke-color4,
+  "smoke5"   : $smoke-color5,
+  "white"    : $white-color,
+  "black"    : $black-color,
+  "gray"     : $gray-color,
+  "title"    : $title-color,
+), $bgcolorMap);
+
+
+// Overlay Color Mapping 
+$overlaycolorMap : ();
+$overlaycolorMap : map-merge((
+  "theme"        : $theme-color,
+  "title"        : $title-color,
+  "white"        : $white-color,
+  "black"        : $black-color,
+  "secondary"    : $secondary-color,
+  "overlay1"     : #101315,
+), $overlaycolorMap);
+
+
+// Text Color Mapping 
+$textColorsMap : ();
+$textColorsMap : map-merge((
+  "theme"      : $theme-color,
+  "theme2"     : $theme-color,
+  "secondary"  : $secondary-color,
+  "title"      : $title-color,
+  "body"       : $body-color,
+  "white"      : $white-color,
+  "smoke"      : $smoke-color,
+  "light"      : $light-color,
+  "yellow"     : $yellow-color,
+  "success"    : $success-color,
+  "error"      : $error-color), 
+$textColorsMap);
+
+
+// Font Mapping 
+$fontsMap    : ();
+$fontsMap    : map-merge((
+  "icon"     : $icon-font,
+  "title"    : $title-font,
+  "body"     : $body-font,
+), $fontsMap);
